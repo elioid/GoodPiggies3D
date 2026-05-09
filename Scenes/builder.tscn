@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bld5yxw3sagy8"]
 
+[ext_resource type="PackedScene" uid="uid://nejo4r8i4duf" path="res://Mapass.tscn" id="1_3frn1"]
 [ext_resource type="Script" uid="uid://duh2duol315bb" path="res://Scripts/camera_3d.gd" id="1_yh7va"]
 [ext_resource type="Texture2D" uid="uid://dlv5r0f8deqlu" path="res://Assets/switchOff.png" id="2_3xtbr"]
 [ext_resource type="PackedScene" uid="uid://dxjw5gxby764e" path="res://Scenes/Battery.tscn" id="2_lfm8k"]
@@ -19,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://ddfyaeglp0msp" path="res://Scenes/RotationalMotor.tscn" id="11_nsm6f"]
 [ext_resource type="PackedScene" uid="uid://3nwei0btxs1c" path="res://Scenes/Piggy.tscn" id="12_3r01t"]
 [ext_resource type="Texture2D" uid="uid://c35dtro4ije3w" path="res://Assets/Box.png" id="12_nsm6f"]
-[ext_resource type="PackedScene" uid="uid://bil45jjvdwoxo" path="res://Scenes/DistanceSensor.tscn" id="14_a6g8a"]
+[ext_resource type="PackedScene" path="res://Scenes/DistanceSensor.tscn" id="14_a6g8a"]
 [ext_resource type="Texture2D" uid="uid://dceu5t8er5wrs" path="res://Assets/sensorButton.png" id="20_s2e8q"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k7auy"]
@@ -35,13 +36,10 @@ sky = SubResource("Sky_dxdnp")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0xq56"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_a6g8a"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_s2e8q"]
-
 [node name="Builder" type="Node3D" unique_id=558246510]
+
+[node name="Node3D" parent="." unique_id=165866523 instance=ExtResource("1_3frn1")]
+transform = Transform3D(5.947581, 0, 0, 0, 6.9460263, 0, 0, 0, 6.895904, -4.82059, -9.751254, -1.1406655)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=592158824]
 environment = SubResource("Environment_nsm6f")
@@ -81,7 +79,7 @@ button_pressed = true
 texture_normal = ExtResource("5_08wfs")
 texture_pressed = ExtResource("6_lfm8k")
 
-[node name="StartSimulation" type="TextureButton" parent="CanvasLayer" unique_id=462790731]
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer" unique_id=462790731]
 texture_filter = 1
 texture_repeat = 1
 anchors_preset = 3
@@ -158,16 +156,6 @@ texture_normal = ExtResource("20_s2e8q")
 [node name="GridManager" type="Node" parent="." unique_id=1540680719]
 script = ExtResource("5_6dnxn")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=110406981]
-transform = Transform3D(2.9685574, 0, 0, 0, 1, 0, 0, 0, 6.367982, 0, -4.069497, 0)
-physics_material_override = SubResource("PhysicsMaterial_0xq56")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2059890723]
-shape = SubResource("BoxShape3D_a6g8a")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1422460876]
-mesh = SubResource("BoxMesh_s2e8q")
-
 [connection signal="toggled" from="CanvasLayer/BatterySwitch" to="CanvasLayer/BatterySwitch" method="_on_toggled"]
 [connection signal="toggled" from="CanvasLayer/CameraModeSwitch" to="Camera3D" method="_on_camera_mode_switch_toggled"]
-[connection signal="button_up" from="CanvasLayer/StartSimulation" to="GridManager" method="_on_start_simulation_button_up"]
+[connection signal="button_up" from="CanvasLayer/TextureButton" to="GridManager" method="_on_start_simulation_button_up"]

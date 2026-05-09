@@ -44,4 +44,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.25, 0, 0, 0.075523674)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FlipDirection" unique_id=418926467]
 shape = SubResource("BoxShape3D_gwhy4")
 
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1871902339]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9117203, 0)
+
 [connection signal="input_event" from="FlipDirection" to="." method="_on_flip_direction_input_event"]
