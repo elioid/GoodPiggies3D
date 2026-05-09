@@ -1,7 +1,8 @@
 extends Node3D
 
-@onready var ray_cast: RayCast3D = $SensorModel/RayCast3D
-@onready var color_indicator: MeshInstance3D = $SensorModel/ColorIndicator
+@onready var ray_cast: RayCast3D = $SensorMesh/RayCast3D
+@onready var color_indicator: MeshInstance3D = $SensorMesh/ColorIndicator
+
 
 func _physics_process(delta: float) -> void:
 	if ray_cast.is_colliding():

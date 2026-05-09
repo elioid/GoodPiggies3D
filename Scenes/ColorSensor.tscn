@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cpvnpsh10lbki"]
 
 [ext_resource type="Script" uid="uid://cv7hv12aesgri" path="res://Scenes/color_sensor.gd" id="1_cfjvx"]
+[ext_resource type="ArrayMesh" uid="uid://ca7aeq8eijbme" path="res://Assets/color-sensor.obj" id="3_cfjvx"]
 [ext_resource type="ArrayMesh" uid="uid://bgjdal4s538gi" path="res://Assets/Caja.obj" id="3_myd5j"]
-[ext_resource type="PackedScene" uid="uid://das4dqg48s8b6" path="res://Assets/color-sensor.glb" id="4_lpxfb"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_0rcma"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_cfjvx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dm0ff"]
 resource_local_to_scene = true
@@ -17,20 +17,21 @@ size = Vector3(0.1, 0.05, 0.1)
 [node name="ColorSensor" type="Node3D" unique_id=1811241270]
 script = ExtResource("1_cfjvx")
 
-[node name="StaticBody3D" parent="." unique_id=985940085]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1833513943]
 
-[node name="BoxMesh" type="MeshInstance3D" parent="StaticBody3D" unique_id=363155291]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1896118848]
+shape = SubResource("BoxShape3D_cfjvx")
+
+[node name="BoxMesh" type="MeshInstance3D" parent="StaticBody3D" unique_id=304761822]
 mesh = ExtResource("3_myd5j")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=254303572]
-shape = SubResource("BoxShape3D_0rcma")
+[node name="SensorMesh" type="MeshInstance3D" parent="." unique_id=955987511]
+transform = Transform3D(0.004, 0, 0, 0, -1.7484555e-10, -0.004, 0, 0.004, -1.7484555e-10, -0.00818339, 0.20206349, -0.16455618)
+mesh = ExtResource("3_cfjvx")
 
-[node name="SensorModel" parent="." unique_id=771934568 instance=ExtResource("4_lpxfb")]
-transform = Transform3D(0.0036895024, 0, 0, 0, -1.5923135e-10, -0.0039010611, 0, 0.0036427893, -1.705208e-10, 0, 0.2, -0.145)
+[node name="RayCast3D" type="RayCast3D" parent="SensorMesh" unique_id=189109012]
+transform = Transform3D(184.47511, 0, 0, 0, -7.961566e-06, 182.13947, 0, -195.05304, -8.52604e-06, 2.0458474, 31.299269, 39.52648)
 
-[node name="RayCast3D" type="RayCast3D" parent="SensorModel" unique_id=189109012]
-transform = Transform3D(200, 0, 0, 0, -8.742277e-06, 200, 0, -200, -8.742277e-06, 0, 29.000002, 40)
-
-[node name="ColorIndicator" type="MeshInstance3D" parent="SensorModel" unique_id=1744499720]
-transform = Transform3D(200, 0, 0, 0, -8.742275e-06, 200, 0, -200, -8.742275e-06, 0, 29, 16.764807)
+[node name="ColorIndicator" type="MeshInstance3D" parent="SensorMesh" unique_id=1744499720]
+transform = Transform3D(184.47511, 0, 0, 0, -7.961564e-06, 182.13947, 0, -195.05304, -8.526038e-06, 2.0458474, 31.299267, 16.866005)
 mesh = SubResource("BoxMesh_1ku5s")
