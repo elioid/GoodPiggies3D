@@ -19,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://ddfyaeglp0msp" path="res://Scenes/RotationalMotor.tscn" id="11_nsm6f"]
 [ext_resource type="PackedScene" uid="uid://3nwei0btxs1c" path="res://Scenes/Piggy.tscn" id="12_3r01t"]
 [ext_resource type="Texture2D" uid="uid://c35dtro4ije3w" path="res://Assets/Box.png" id="12_nsm6f"]
+[ext_resource type="PackedScene" uid="uid://bil45jjvdwoxo" path="res://Scenes/DistanceSensor.tscn" id="14_a6g8a"]
+[ext_resource type="Texture2D" uid="uid://dceu5t8er5wrs" path="res://Assets/sensorButton.png" id="20_s2e8q"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k7auy"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -116,6 +118,7 @@ pdp_scene = ExtResource("9_dxdnp")
 box_scene = ExtResource("10_dxdnp")
 rotational_motor_scene = ExtResource("11_nsm6f")
 piggy_scene = ExtResource("12_3r01t")
+distance_sensor_scene = ExtResource("14_a6g8a")
 builder_camera = NodePath("../../../Camera3D")
 
 [node name="WheelButton" type="TextureButton" parent="CanvasLayer/PanelContainer/HBoxContainer" unique_id=231670041]
@@ -147,6 +150,10 @@ texture_filter = 1
 texture_repeat = 1
 layout_mode = 2
 texture_normal = ExtResource("12_nsm6f")
+
+[node name="DistanceSensorButton" type="TextureButton" parent="CanvasLayer/PanelContainer/HBoxContainer" unique_id=1717850360]
+layout_mode = 2
+texture_normal = ExtResource("20_s2e8q")
 
 [node name="GridManager" type="Node" parent="." unique_id=1540680719]
 script = ExtResource("5_6dnxn")
