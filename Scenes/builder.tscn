@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://lg0x3tlgoaw3" path="res://Scripts/grid_manager.gd" id="5_6dnxn"]
 [ext_resource type="Texture2D" uid="uid://nntjuwv4aav1" path="res://Assets/InteractingButton.png" id="5_08wfs"]
 [ext_resource type="Texture2D" uid="uid://dl1si4e4yon8x" path="res://Assets/BuildingButton.png" id="6_lfm8k"]
+[ext_resource type="Texture2D" uid="uid://dy8v2s76342gm" path="res://Assets/startButton.png" id="8_0xq56"]
 [ext_resource type="Script" uid="uid://cjrh8q2qf4dr6" path="res://Scripts/part_selector.gd" id="8_k7auy"]
 [ext_resource type="Texture2D" uid="uid://kfnbv6woomcw" path="res://Assets/Wheel.png" id="8_uv6uh"]
 [ext_resource type="Texture2D" uid="uid://dmydt7ve66j0m" path="res://Assets/PDP.png" id="9_0menc"]
@@ -71,6 +72,23 @@ toggle_mode = true
 button_pressed = true
 texture_normal = ExtResource("5_08wfs")
 texture_pressed = ExtResource("6_lfm8k")
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer" unique_id=462790731]
+texture_filter = 1
+texture_repeat = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -136.0
+offset_top = -73.0
+offset_right = -72.0
+offset_bottom = -41.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("8_0xq56")
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=2133531871]
 anchors_preset = -1
