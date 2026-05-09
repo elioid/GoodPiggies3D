@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dcrynsukp6v7n"
+path="res://.godot/imported/Assembly 3.obj-0ec452801b2b693b66aad6f8dd273bda.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Assembly 3.obj-0ec452801b2b693b66aad6f8dd273bda.mesh"]
+
+source_file="res://Assets/Assembly 3.obj"
+dest_files=["res://.godot/imported/Assembly 3.obj-0ec452801b2b693b66aad6f8dd273bda.mesh", "res://.godot/imported/Assembly 3.obj-0ec452801b2b693b66aad6f8dd273bda.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bld5yxw3sagy8"]
+
+[ext_resource type="Script" uid="uid://duh2duol315bb" path="res://Scripts/camera_3d.gd" id="1_yh7va"]
+
+[sub_resource type="Environment" id="Environment_halx7"]
+
+[node name="Builder" type="Node3D" unique_id=558246510]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1802282021]
+environment = SubResource("Environment_halx7")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=878762864]
+script = ExtResource("1_yh7va")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1121977128]

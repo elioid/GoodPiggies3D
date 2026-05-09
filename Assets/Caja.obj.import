@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bgjdal4s538gi"
+path="res://.godot/imported/Caja.obj-5771114cdb6cf59be9b24c3b48097564.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Caja.obj-5771114cdb6cf59be9b24c3b48097564.mesh"]
+
+source_file="res://Assets/Caja.obj"
+dest_files=["res://.godot/imported/Caja.obj-5771114cdb6cf59be9b24c3b48097564.mesh", "res://.godot/imported/Caja.obj-5771114cdb6cf59be9b24c3b48097564.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

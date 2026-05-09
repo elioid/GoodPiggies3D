@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dxjw5gxby764e"]
+
+[ext_resource type="Script" uid="uid://bpk16jc1gyc0c" path="res://Scripts/battery.gd" id="1_lxbyn"]
+[ext_resource type="ArrayMesh" uid="uid://c6ebsumn8bh3i" path="res://Assets/Bateria Insana.obj" id="2_deexs"]
+[ext_resource type="ArrayMesh" uid="uid://bgjdal4s538gi" path="res://Assets/Caja.obj" id="3_faih8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_20cnl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lxbyn"]
+
+[node name="Battery" type="Node3D" unique_id=1144587737]
+script = ExtResource("1_lxbyn")
+
+[node name="BatteryMesh" type="MeshInstance3D" parent="." unique_id=27902870]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+mesh = ExtResource("2_deexs")
+
+[node name="BatteryPort" type="Area3D" parent="." unique_id=1506268041]
+transform = Transform3D(2.9130106, 0, 0, 0, 3.2235641, 0, 0, 0, 4.5450497, 0.06315646, 0.06915908, 0.06322891)
+
+[node name="PortCollision" type="CollisionShape3D" parent="BatteryPort" unique_id=2024127343]
+shape = SubResource("BoxShape3D_20cnl")
+
+[node name="BoxStaticBody" type="StaticBody3D" parent="." unique_id=1982267221]
+
+[node name="BoxCollision" type="CollisionShape3D" parent="BoxStaticBody" unique_id=830933330]
+shape = SubResource("BoxShape3D_lxbyn")
+
+[node name="BoxMesh" type="MeshInstance3D" parent="BoxStaticBody" unique_id=352902676]
+mesh = ExtResource("3_faih8")
