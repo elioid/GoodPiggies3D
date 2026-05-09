@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bil45jjvdwoxo"]
+
+[ext_resource type="ArrayMesh" uid="uid://bllxpf0r8sh42" path="res://Assets/MODULO TCRT5000L.obj" id="1_78q2i"]
+[ext_resource type="ArrayMesh" uid="uid://bgjdal4s538gi" path="res://Assets/Caja.obj" id="2_c8q6l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ob7ch"]
+
+[node name="DistanceSensor" type="Node3D" unique_id=1948026077]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1921613493]
+transform = Transform3D(0.014660532, 0, 0, 0, -9.180962e-10, -0.015397324, 0, 0.021003593, -6.730384e-10, 0, 0, 0)
+mesh = ExtResource("1_78q2i")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=372151017]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=885472232]
+shape = SubResource("BoxShape3D_ob7ch")
+
+[node name="BoxMesh" type="MeshInstance3D" parent="StaticBody3D" unique_id=70595985]
+mesh = ExtResource("2_c8q6l")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1869684322]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
