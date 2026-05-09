@@ -14,3 +14,6 @@ func _physics_process(delta):
 		var collision_point = get_collision_point()
 		var distance = origin.distance_to(collision_point)
 		print("Distance to object: ", distance)
+
+func get_distance() -> void:
+	pass

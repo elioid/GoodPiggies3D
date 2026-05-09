@@ -4,7 +4,7 @@ extends Node3D
 
 @export var suspension_rest_dist: float = 2.0
 @export var spring_strength: float = 250.0
-@export var spring_damping: float = 25.0
+@export var spring_damping: float = 50.0
 @export var drive_force: float = -20.0
 
 @onready var raycast: RayCast3D = $RayCast3D
@@ -65,6 +65,7 @@ func _physics_process(_delta: float) -> void:
 		var suspension_force = (compression * spring_strength) - (vertical_velocity * spring_damping)
 		
 		robot_body.apply_force(up_direction * max(0.0, suspension_force), force_offset)
+		
 		
 		if is_spinning:
 			var direction_multiplier = -1.0 if is_inverted else 1.0
