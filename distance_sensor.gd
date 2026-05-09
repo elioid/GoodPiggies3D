@@ -1,0 +1,17 @@
+extends RayCast3D # (or RayCast2D)
+
+var offset: Vector3
+var rayPos : Vector3
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	offset = transform.basis.x * 2.0
+	rayPos = transform.origin + offset
+
+
+func _physics_process(delta):
+	if is_colliding():
+		var origin = global_transform.origin
+		var collision_point = get_collision_point()
+		var distance = origin.distance_to(collision_point)
+		print("Distance to object: ", distance)
