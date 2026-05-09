@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cpvnpsh10lbki"]
 
-[ext_resource type="Script" uid="uid://cv7hv12aesgri" path="res://Scenes/color_sensor.gd" id="1_cfjvx"]
+[ext_resource type="Script" uid="uid://cv7hv12aesgri" path="res://Scripts/color_sensor.gd" id="1_cfjvx"]
 [ext_resource type="ArrayMesh" uid="uid://ca7aeq8eijbme" path="res://Assets/color-sensor.obj" id="3_cfjvx"]
 [ext_resource type="ArrayMesh" uid="uid://bgjdal4s538gi" path="res://Assets/Caja.obj" id="3_myd5j"]
 

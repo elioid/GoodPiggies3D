@@ -38,6 +38,7 @@ func select_port(port: ConnectionPort) -> void:
 
 func _draw_cable(pos_a: Vector3, pos_b: Vector3) -> MeshInstance3D:
 	var cable = MeshInstance3D.new()
+	cable.add_to_group("cables")
 	var box_mesh = BoxMesh.new()
 	
 	box_mesh.size = Vector3(0.01, 1.0, 0.01) 

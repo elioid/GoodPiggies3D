@@ -66,7 +66,19 @@ func _on_start_simulation_button_up() -> void:
 			_transfer_collisions_to_rigidbody(block, robot)
 			
 		_set_owner_recursive(block, robot)
-	
+	for cable in get_tree().get_nodes_in_group("cables"):
+		if not is_instance_valid(cable):
+			continue
+			
+		var old_cable_transform = cable.global_transform
+		
+		cable.get_parent().remove_child(cable)
+		robot.add_child(cable)
+		
+		cable.global_transform = old_cable_transform
+		
+		_set_owner_recursive(cable, robot)
+		
 	grid_data.clear()
 	
 	
