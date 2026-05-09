@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://ddfyaeglp0msp"]
+
+[ext_resource type="Script" uid="uid://bvn2bt7a5ua0u" path="res://Scripts/rotational_motor.gd" id="1_b14ht"]
+[ext_resource type="ArrayMesh" uid="uid://b0ryt2nqgeflb" path="res://Assets/Part Studio 1.obj" id="1_gt7ii"]
+[ext_resource type="ArrayMesh" uid="uid://lgwradmc55qj" path="res://Assets/Llanta.obj" id="2_0lq1r"]
+[ext_resource type="Script" uid="uid://b4vulc4d2d2ac" path="res://Scripts/connection_port.gd" id="3_gwhy4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ekjm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b14ht"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gwhy4"]
+
+[node name="RotationalMotor" type="Node3D" unique_id=735002332 node_paths=PackedStringArray("power_input_port")]
+script = ExtResource("1_b14ht")
+power_input_port = NodePath("Area3D")
+
+[node name="MotorMesh" type="MeshInstance3D" parent="." unique_id=630973540]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -0.137)
+mesh = ExtResource("1_gt7ii")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=350338364 node_paths=PackedStringArray("parent_device")]
+transform = Transform3D(3.688, 0, 0, 0, 3.688, 0, 0, 0, 3.688, 0.088, 0.012, -0.51)
+script = ExtResource("3_gwhy4")
+port_type = "RotationalMotor"
+parent_device = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=104517366]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+shape = SubResource("BoxShape3D_4ekjm")
+
+[node name="WheelMesh" type="MeshInstance3D" parent="." unique_id=1954483751]
+transform = Transform3D(20, 0, 0, 0, -4.371139e-07, -20, 0, 10, -8.742278e-07, 0, 0, 0.03)
+mesh = ExtResource("2_0lq1r")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1238642294]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1300437671]
+shape = SubResource("BoxShape3D_b14ht")
+
+[node name="FlipDirection" type="Area3D" parent="." unique_id=1841888394]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.25, 0, 0, 0.075523674)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FlipDirection" unique_id=418926467]
+shape = SubResource("BoxShape3D_gwhy4")
+
+[connection signal="input_event" from="FlipDirection" to="." method="_on_flip_direction_input_event"]

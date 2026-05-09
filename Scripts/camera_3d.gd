@@ -22,12 +22,7 @@ func _ready() -> void:
 		if preview_mesh:
 			preview_mesh.visible = false
 
-func on_build_button_toggled(is_building: bool) -> void:
-	if is_building:
-		current_mode = PlayerMode.BUILDING
-	else:
-		current_mode = PlayerMode.INTERACT
-		preview_mesh.visible = false
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
@@ -168,3 +163,11 @@ func get_rotation_y_axis() -> Basis:
 	var cam_y_rot = global_rotation.y
 	var snapped_rotation = round(cam_y_rot / (PI / 2.0)) * (PI / 2.0)
 	return Basis(Vector3.UP, snapped_rotation)
+
+
+func _on_camera_mode_switch_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		current_mode = PlayerMode.BUILDING
+	else:
+		current_mode = PlayerMode.INTERACT
+		preview_mesh.visible = false

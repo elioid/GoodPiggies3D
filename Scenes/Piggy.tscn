@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://3nwei0btxs1c"]
+
+[ext_resource type="ArrayMesh" uid="uid://bumwgwamsgul3" path="res://Assets/Bad Piggie.obj" id="1_auxv8"]
+[ext_resource type="ArrayMesh" uid="uid://bgjdal4s538gi" path="res://Assets/Caja.obj" id="2_dm5nr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_km6xq"]
+
+[node name="Piggy" type="Node3D" unique_id=1349100316]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=437411134]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+mesh = ExtResource("1_auxv8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1366261189]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=971774794]
+mesh = ExtResource("2_dm5nr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1171747442]
+shape = SubResource("BoxShape3D_km6xq")

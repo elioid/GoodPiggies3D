@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://bbwgs5j2b8adr"]
+
+[ext_resource type="ArrayMesh" uid="uid://drjot1wpcxnps" path="res://Assets/Simp PDP.obj" id="1_ja53o"]
+[ext_resource type="Script" uid="uid://bbr2p1egpnbc7" path="res://Scripts/pdp.gd" id="1_srr5m"]
+[ext_resource type="Script" uid="uid://b4vulc4d2d2ac" path="res://Scripts/connection_port.gd" id="2_srr5m"]
+[ext_resource type="ArrayMesh" uid="uid://bgjdal4s538gi" path="res://Assets/Caja.obj" id="3_35koo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qjvxg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s2g52"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0f4fb"]
+
+[node name="PDP" type="Node3D" unique_id=1303865937 node_paths=PackedStringArray("power_input_port", "power_output_ports")]
+script = ExtResource("1_srr5m")
+power_input_port = NodePath("BatteryPort")
+power_output_ports = [NodePath("Port1"), NodePath("Port2"), NodePath("Port3"), NodePath("Port4"), NodePath("Port5"), NodePath("Port6"), NodePath("Port7"), NodePath("Port8")]
+
+[node name="PDPMesh" type="MeshInstance3D" parent="." unique_id=490264195]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = ExtResource("1_ja53o")
+
+[node name="BatteryPort" type="Area3D" parent="." unique_id=46240982 node_paths=PackedStringArray("parent_device")]
+transform = Transform3D(0.48326406, 0, 0, 0, 0.37908125, 0, 0, 0, 0.3642197, -0.033406015, 0.18710491, 0.036614086)
+script = ExtResource("2_srr5m")
+port_type = "PDP"
+parent_device = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BatteryPort" unique_id=426469618]
+transform = Transform3D(0.17178303, 0, 0, 0, 0.2018307, 0, 0, 0, 0.25121054, 0, 0, 0)
+shape = SubResource("BoxShape3D_qjvxg")
+
+[node name="Port1" type="Area3D" parent="." unique_id=1647036778 node_paths=PackedStringArray("parent_device")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.083405405, 0.084037945, 0.04226257)
+script = ExtResource("2_srr5m")
+port_type = "PDP"
+parent_device = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Port1" unique_id=969514323]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+shape = SubResource("BoxShape3D_s2g52")
+
+[node name="Port2" type="Area3D" parent="." unique_id=825484663 node_paths=PackedStringArray("parent_device")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09420833, 0.020225361, 0.032638513)
+script = ExtResource("2_srr5m")
+port_type = "PDP"
+parent_device = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Port2" unique_id=1468094641]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+shape = SubResource("BoxShape3D_s2g52")
+
+[node name="Port3" type="Area3D" parent="." unique_id=1572696669 node_paths=PackedStringArray("parent_device")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09800649, -0.02095573, 0.058139212)
+script = ExtResource("2_srr5m")
+port_type = "PDP"
+parent_device = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Port3" unique_id=1891441870]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+shape = SubResource("BoxShape3D_s2g52")
+
+[node name="Port4" type="Area3D" parent="." unique_id=537964877 node_paths=PackedStringArray("parent_device")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09874287, -0.0757893, 0.06238251)
+script = ExtResource("2_srr5m")
+port_type = "PDP"
+parent_device = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Port4" unique_id=1114824403]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+shape = SubResource("BoxShape3D_s2g52")
+
+[node name="Port5" type="Area3D" parent="." unique_id=1935567860 node_paths=PackedStringArray("parent_device")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08074698, 0.07997069, 0.03580562)
+script = ExtResource("2_srr5m")
+port_type = "PDP"
+parent_device = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Port5" unique_id=426802917]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+shape = SubResource("BoxShape3D_s2g52")
+
+[node name="Port6" type="Area3D" parent="." unique_id=1240416516 node_paths=PackedStringArray("parent_device")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08343373, 0.026722804, 0.032501042)
+script = ExtResource("2_srr5m")
+port_type = "PDP"
+parent_device = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Port6" unique_id=1200572303]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+shape = SubResource("BoxShape3D_s2g52")
+
+[node name="Port7" type="Area3D" parent="." unique_id=1654777728 node_paths=PackedStringArray("parent_device")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.078990266, -0.028761882, 0.0450121)
+script = ExtResource("2_srr5m")
+port_type = "PDP"
+parent_device = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Port7" unique_id=1946730486]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+shape = SubResource("BoxShape3D_s2g52")
+
+[node name="Port8" type="Area3D" parent="." unique_id=1115052374 node_paths=PackedStringArray("parent_device")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0923087, -0.0818704, 0.0509677)
+script = ExtResource("2_srr5m")
+port_type = "PDP"
+parent_device = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Port8" unique_id=595408329]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+shape = SubResource("BoxShape3D_s2g52")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1719012811]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=761685662]
+shape = SubResource("BoxShape3D_0f4fb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=2083670848]
+mesh = ExtResource("3_35koo")

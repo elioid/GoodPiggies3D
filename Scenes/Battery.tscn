@@ -2,23 +2,29 @@
 
 [ext_resource type="Script" uid="uid://bpk16jc1gyc0c" path="res://Scripts/battery.gd" id="1_lxbyn"]
 [ext_resource type="ArrayMesh" uid="uid://c6ebsumn8bh3i" path="res://Assets/Bateria Insana.obj" id="2_deexs"]
+[ext_resource type="Script" uid="uid://b4vulc4d2d2ac" path="res://Scripts/connection_port.gd" id="3_20cnl"]
 [ext_resource type="ArrayMesh" uid="uid://bgjdal4s538gi" path="res://Assets/Caja.obj" id="3_faih8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_20cnl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lxbyn"]
 
-[node name="Battery" type="Node3D" unique_id=1144587737]
+[node name="Battery" type="Node3D" unique_id=1144587737 node_paths=PackedStringArray("power_output_port")]
 script = ExtResource("1_lxbyn")
+power_output_port = NodePath("Area3D")
 
 [node name="BatteryMesh" type="MeshInstance3D" parent="." unique_id=27902870]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 2, 0, -2, -8.742278e-08, 0, 0, 0)
 mesh = ExtResource("2_deexs")
 
-[node name="BatteryPort" type="Area3D" parent="." unique_id=1506268041]
-transform = Transform3D(2.9130106, 0, 0, 0, 3.2235641, 0, 0, 0, 4.5450497, 0.06315646, 0.06915908, 0.06322891)
+[node name="Area3D" type="Area3D" parent="." unique_id=1624956390 node_paths=PackedStringArray("parent_device")]
+transform = Transform3D(0.035745624, 0, 0, 0, 0.029698627, 0, 0, 0, 0.02872371, 0.14879464, 0.14299701, 0.12591383)
+script = ExtResource("3_20cnl")
+port_type = "Battery"
+parent_device = NodePath("..")
 
-[node name="PortCollision" type="CollisionShape3D" parent="BatteryPort" unique_id=2024127343]
+[node name="PortCollision" type="CollisionShape3D" parent="Area3D" unique_id=2024127343]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.06907848, 0.06915908, 0.05201333)
 shape = SubResource("BoxShape3D_20cnl")
 
 [node name="BoxStaticBody" type="StaticBody3D" parent="." unique_id=1982267221]

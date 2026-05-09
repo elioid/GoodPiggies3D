@@ -1,15 +1,131 @@
 [gd_scene format=3 uid="uid://bld5yxw3sagy8"]
 
 [ext_resource type="Script" uid="uid://duh2duol315bb" path="res://Scripts/camera_3d.gd" id="1_yh7va"]
+[ext_resource type="Texture2D" uid="uid://dlv5r0f8deqlu" path="res://Assets/switchOff.png" id="2_3xtbr"]
+[ext_resource type="PackedScene" uid="uid://dxjw5gxby764e" path="res://Scenes/Battery.tscn" id="2_lfm8k"]
+[ext_resource type="Texture2D" uid="uid://dyx76ju7wc2si" path="res://Assets/switchOn.png" id="3_l6p0t"]
+[ext_resource type="Script" uid="uid://b1rpgupg8ghe" path="res://Scripts/battery_switch.gd" id="4_l6p0t"]
+[ext_resource type="Script" uid="uid://lg0x3tlgoaw3" path="res://Scripts/grid_manager.gd" id="5_6dnxn"]
+[ext_resource type="Texture2D" uid="uid://nntjuwv4aav1" path="res://Assets/InteractingButton.png" id="5_08wfs"]
+[ext_resource type="Texture2D" uid="uid://dl1si4e4yon8x" path="res://Assets/BuildingButton.png" id="6_lfm8k"]
+[ext_resource type="Script" uid="uid://cjrh8q2qf4dr6" path="res://Scripts/part_selector.gd" id="8_k7auy"]
+[ext_resource type="Texture2D" uid="uid://kfnbv6woomcw" path="res://Assets/Wheel.png" id="8_uv6uh"]
+[ext_resource type="Texture2D" uid="uid://dmydt7ve66j0m" path="res://Assets/PDP.png" id="9_0menc"]
+[ext_resource type="PackedScene" uid="uid://bbwgs5j2b8adr" path="res://Scenes/PDP.tscn" id="9_dxdnp"]
+[ext_resource type="PackedScene" uid="uid://bwjct36m7l5we" path="res://Scenes/Box.tscn" id="10_dxdnp"]
+[ext_resource type="Texture2D" uid="uid://c0pivyp7vpfv7" path="res://Assets/Battery.png" id="10_k7auy"]
+[ext_resource type="Texture2D" uid="uid://crgxjm7v62bx" path="res://Assets/Piggy.png" id="11_dxdnp"]
+[ext_resource type="PackedScene" uid="uid://ddfyaeglp0msp" path="res://Scenes/RotationalMotor.tscn" id="11_nsm6f"]
+[ext_resource type="PackedScene" uid="uid://3nwei0btxs1c" path="res://Scenes/Piggy.tscn" id="12_3r01t"]
+[ext_resource type="Texture2D" uid="uid://c35dtro4ije3w" path="res://Assets/Box.png" id="12_nsm6f"]
 
-[sub_resource type="Environment" id="Environment_halx7"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k7auy"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_dxdnp"]
+sky_material = SubResource("ProceduralSkyMaterial_k7auy")
+
+[sub_resource type="Environment" id="Environment_nsm6f"]
+background_mode = 2
+sky = SubResource("Sky_dxdnp")
+tonemap_mode = 2
+glow_enabled = true
 
 [node name="Builder" type="Node3D" unique_id=558246510]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1802282021]
-environment = SubResource("Environment_halx7")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=592158824]
+environment = SubResource("Environment_nsm6f")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=878762864]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=878762864 node_paths=PackedStringArray("grid_manager")]
 script = ExtResource("1_yh7va")
+grid_manager = NodePath("../GridManager")
+current_component_scene = ExtResource("10_dxdnp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1121977128]
+
+[node name="BatterySwitch" type="TextureButton" parent="CanvasLayer" unique_id=851558780]
+texture_filter = 1
+texture_repeat = 1
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(4.000001, 3.9999995)
+toggle_mode = true
+texture_normal = ExtResource("2_3xtbr")
+texture_pressed = ExtResource("3_l6p0t")
+script = ExtResource("4_l6p0t")
+
+[node name="CameraModeSwitch" type="TextureButton" parent="CanvasLayer" unique_id=2034157224]
+texture_filter = 1
+texture_repeat = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -87.0
+offset_top = 7.0
+offset_right = -47.0
+offset_bottom = 47.0
+grow_horizontal = 0
+scale = Vector2(2, 2.0000005)
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("5_08wfs")
+texture_pressed = ExtResource("6_lfm8k")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=2133531871]
+anchors_preset = -1
+anchor_left = 0.003
+anchor_top = 0.99500006
+anchor_right = 0.003
+anchor_bottom = 0.99500006
+offset_left = -0.4560001
+offset_top = -65.76007
+offset_right = 175.544
+offset_bottom = -32.76007
+scale = Vector2(2, 2)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer" unique_id=1620242861 node_paths=PackedStringArray("builder_camera")]
+layout_mode = 2
+script = ExtResource("8_k7auy")
+battery_scene = ExtResource("2_lfm8k")
+pdp_scene = ExtResource("9_dxdnp")
+box_scene = ExtResource("10_dxdnp")
+rotational_motor_scene = ExtResource("11_nsm6f")
+piggy_scene = ExtResource("12_3r01t")
+builder_camera = NodePath("../../../Camera3D")
+
+[node name="WheelButton" type="TextureButton" parent="CanvasLayer/PanelContainer/HBoxContainer" unique_id=231670041]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+texture_normal = ExtResource("8_uv6uh")
+
+[node name="PDPButton" type="TextureButton" parent="CanvasLayer/PanelContainer/HBoxContainer" unique_id=1190921529]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+texture_normal = ExtResource("9_0menc")
+
+[node name="BatteryButton" type="TextureButton" parent="CanvasLayer/PanelContainer/HBoxContainer" unique_id=762982985]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+texture_normal = ExtResource("10_k7auy")
+
+[node name="PiggyButton" type="TextureButton" parent="CanvasLayer/PanelContainer/HBoxContainer" unique_id=1420891773]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+texture_normal = ExtResource("11_dxdnp")
+
+[node name="BoxButton" type="TextureButton" parent="CanvasLayer/PanelContainer/HBoxContainer" unique_id=1426079932]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+texture_normal = ExtResource("12_nsm6f")
+
+[node name="GridManager" type="Node" parent="." unique_id=1540680719]
+script = ExtResource("5_6dnxn")
+
+[connection signal="toggled" from="CanvasLayer/BatterySwitch" to="CanvasLayer/BatterySwitch" method="_on_toggled"]
+[connection signal="toggled" from="CanvasLayer/CameraModeSwitch" to="Camera3D" method="_on_camera_mode_switch_toggled"]
