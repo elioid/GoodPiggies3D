@@ -6,6 +6,7 @@ extends HBoxContainer
 @export var rotational_motor_scene: PackedScene
 @export var piggy_scene: PackedScene
 @export var distance_sensor_scene: PackedScene
+@export var color_sensor_scene: PackedScene
 
 @export var builder_camera: Camera3D
 
@@ -16,6 +17,8 @@ func _ready() -> void:
 	$WheelButton.pressed.connect(_on_part_selected.bind(rotational_motor_scene))
 	$PiggyButton.pressed.connect(_on_part_selected.bind(piggy_scene))
 	$DistanceSensorButton.pressed.connect(_on_part_selected.bind(distance_sensor_scene))
+	$ColorSensorButton.pressed.connect(_on_part_selected.bind(color_sensor_scene))
+
 
 func _on_part_selected(selected_scene: PackedScene) -> void:
 	if builder_camera:
