@@ -1,11 +1,14 @@
-[gd_scene format=3 uid="uid://c462rjw1ywjq"]
+[gd_scene format=3 uid="uid://nejo4r8i4duf"]
 
 [ext_resource type="MeshLibrary" uid="uid://c4gmbr4o2ffdk" path="res://MeshLibrary.tres" id="1_l81jg"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_l81jg"]
 
 [node name="Node3D" type="Node3D" unique_id=165866523]
 
 [node name="GridMap" type="GridMap" parent="." unique_id=1367648239]
 mesh_library = ExtResource("1_l81jg")
+physics_material = SubResource("PhysicsMaterial_l81jg")
 data = {
 "cells": PackedInt32Array(0, 65534, 12, 0, 65535, 12, 0, 0, 12, 0, 65533, 11, 0, 1, 12, 0, 2, 12, 0, 3, 12, 0, 4, 12, 0, 5, 655371)
 }
