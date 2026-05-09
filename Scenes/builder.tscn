@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://3nwei0btxs1c" path="res://Scenes/Piggy.tscn" id="12_3r01t"]
 [ext_resource type="Texture2D" uid="uid://c35dtro4ije3w" path="res://Assets/Box.png" id="12_nsm6f"]
 [ext_resource type="PackedScene" uid="uid://bil45jjvdwoxo" path="res://Scenes/DistanceSensor.tscn" id="14_a6g8a"]
-[ext_resource type="Texture2D" uid="uid://bgunfds3pfb2u" path="res://Assets/gatitoUnpressed.png" id="20_s2e8q"]
+[ext_resource type="Texture2D" uid="uid://dceu5t8er5wrs" path="res://Assets/sensorButton.png" id="20_s2e8q"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k7auy"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
