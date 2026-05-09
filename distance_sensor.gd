@@ -5,7 +5,7 @@ var rayPos : Vector3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	offset = transform.basis.x * 2.0
+	offset = transform.basis.x * 100.0
 	rayPos = transform.origin + offset
 
 
