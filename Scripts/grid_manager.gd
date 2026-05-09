@@ -40,3 +40,63 @@ func grid_to_world(grid_pos: Vector3i) -> Vector3:
 	var world_z = float(grid_pos.z) * GRID_STEP
 	
 	return Vector3(world_x, world_y, world_z)
+
+
+func _on_start_simulation_button_up() -> void:
+	var robot = RigidBody3D.new()
+	robot.name = "Robot"
+	robot.mass = 10.0
+	
+	get_tree().current_scene.add_child(robot)
+
+	for block in grid_data.values():
+		if not is_instance_valid(block):
+			continue
+			
+		var old_global_transform = block.global_transform	
+	
+		block.get_parent().remove_child(block)
+		robot.add_child(block)
+		
+		block.global_transform = old_global_transform
+		
+		if block.is_in_group("wheels"):
+			_disable_collisions(block)
+		else:
+			_transfer_collisions_to_rigidbody(block, robot)
+			
+		_set_owner_recursive(block, robot)
+	
+	grid_data.clear()
+	
+	
+	
+	
+func _disable_collisions(node: Node) -> void:
+	if node is CollisionShape3D:
+		node.set_deferred("disabled", true)
+		
+	for child in node.get_children():
+		_disable_collisions(child)
+	
+func _set_owner_recursive(node: Node, new_owner: Node) -> void:
+	if node != new_owner:
+		node.owner = new_owner
+	
+	for child in node.get_children():
+		_set_owner_recursive(child, new_owner)
+
+func _transfer_collisions_to_rigidbody(node: Node, robot: RigidBody3D) -> void:
+	if node is PhysicsBody3D and node != robot:
+		node.collision_layer = 0
+		node.collision_mask = 0
+		
+	if node is CollisionShape3D:
+		var dup_shape = node.duplicate()
+		robot.add_child(dup_shape)
+		dup_shape.global_transform = node.global_transform
+		
+		node.set_deferred("disabled", true)
+		
+	for child in node.get_children():
+		_transfer_collisions_to_rigidbody(child, robot)
